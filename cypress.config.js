@@ -2,6 +2,7 @@
   const { defineConfig } = require('cypress');
   
   module.exports = defineConfig({
+    reporter: 'cypress-mochawesome-reporter',
       e2e: {
           baseUrl: 'https://staging.trymima.com/',
           defaultCommandTimeout: 10000,
@@ -12,7 +13,7 @@
           //   "MAILOSAUR_API_KEY": ""
           // },
           setupNodeEvents(on, config) {
-            // implement node event listeners here
+            require('cypress-mochawesome-reporter/plugin')(on);
           },
       },
   });

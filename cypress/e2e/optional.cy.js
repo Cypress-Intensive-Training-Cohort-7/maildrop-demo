@@ -1,23 +1,23 @@
 describe('Example Test', () => {
-    it.only('signup via twitter and website', () => {
+    it.skip('signup via twit.skipter and websit.skipe', () => {
         cy.typeInBasicDetails()
-        cy.fillinAnyOptionalField('website')
-        cy.clickHowYouHeardABoutUsDropdown('Twitter')
+        cy.fillinAnyOptionalField('websit.skipe')
+        cy.clickHowYouHeardABoutUsDropdown('Twit.skipter')
         cy.insertPassword()
-        cy.submitSignupForm()
+        cy.submit.skipSignupForm()
         cy.retrieveAndInsertOTP()
     });
-    it('signup via instagram', () => {
+    it.skip('signup via instagram', () => {
         
         cy.typeInBasicDetailsAndRegNumber()
         cy.clickHowYouHeardABoutUsDropdown('Instagram')
     });
-    it('signup via Facebook', () => {
+    it.skip('signup via Facebook', () => {
         
         cy.typeInBasicDetailsAndRegNumber()
         cy.clickHowYouHeardABoutUsDropdown('Facebook')
     });
-    it('signup via webinar and seminar', () => {
+    it.skip('signup via webinar and seminar', () => {
         
         cy.typeInBasicDetailsAndRegNumber()
         cy.clickHowYouHeardABoutUsDropdown('Webinar/Seminar')

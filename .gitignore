@@ -10,4 +10,6 @@ cypress/screenshots/
 cypress/videos/
 cypress/fixtures/creds.json
 cypress.env.json 
+
 # report files
+cypress/reports/

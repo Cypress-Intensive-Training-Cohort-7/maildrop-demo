@@ -4,3 +4,4 @@ import 'cypress-fill-command'
 import './custom-commands/homepage'
 import './custom-commands/signupPage'
 import './custom-commands/common-actions'
+import 'cypress-mochawesome-reporter/register';
