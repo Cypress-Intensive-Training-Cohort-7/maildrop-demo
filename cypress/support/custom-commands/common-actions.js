@@ -1,4 +1,5 @@
 import { fakerEN_NG as faker } from "@faker-js/faker"
+import { JSDOM } from 'jsdom'
 let homepage
 let signup
 let email
@@ -103,7 +104,6 @@ Cypress.Commands.add('retrieveAndInsertOTP', ()=>{
         },
     }).then((response)=>{
         inboxID = response.body.data.inbox[0].id
-        cy.log(inboxID)
 
         return cy.request({
         method: "POST",
@@ -119,10 +119,9 @@ Cypress.Commands.add('retrieveAndInsertOTP', ()=>{
         },
     }).then((response)=>{
         const emailBody = response.body.data.message.html
-        cy.log(emailBody)
-        const parser = new DOMParser()
-        const doc = parser.parseFromString(emailBody, 'text/html')
-        const code = doc.querySelector('center>table > tbody > tr:nth-child(2) p:nth-of-type(3)').textContent
+        
+        const parser = new JSDOM(emailBody)
+        const code = parser.window.document.querySelector('center>table > tbody > tr:nth-child(2) p:nth-of-type(3)').textContent
         const otp = code.trim()
         cy.get('input[type="tel"]').each(($element, ind)=>{
             cy.wrap($element).fill(otp[ind])
