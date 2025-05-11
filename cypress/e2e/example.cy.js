@@ -1,5 +1,5 @@
 describe('Example Test', () => {
-    it.only('signup via twitter', () => {
+    it('signup via twitter', () => {
         cy.typeInBasicDetailsAndRegNumber()
         cy.clickHowYouHeardABoutUsDropdown('Twitter')
         cy.insertPassword()
